@@ -7,13 +7,6 @@ function Footer() {
     );
   };
 
-  const navigateToMyGithubIn = () => {
-    window.open(
-      "https://github.com/Mohammad10091998",
-      "_blank"
-    );
-  };
-
   const copyEmailToClipboard = () => {
     const email = "mohdasifamu1998@gmail.com";
     navigator.clipboard.writeText(email).then(
@@ -43,13 +36,6 @@ function Footer() {
           className="w-20 text-center rounded-full bg-slate-600 p-2 hover:bg-slate-400 text-gray-200 hover:text-black focus:outline-none"
         >
           linkedIn
-        </button>
-        <button
-          type="button"
-          onClick={navigateToMyGithubIn}
-          className="w-20 text-center rounded-full bg-slate-600 p-2 hover:bg-slate-400 text-gray-200 hover:text-black focus:outline-none"
-        >
-          github
         </button>
       </div>
     </div>
