@@ -1,4 +1,10 @@
-import { Link } from "react-router-dom";
+
+const navigateToReadMe = () => {
+  window.open(
+    "https://github.com/Mohammad10091998/auto_test_ui/blob/main/README.md#features",
+    "_blank"
+  );
+};
 
 function Home() {
   return (
@@ -10,13 +16,13 @@ function Home() {
           <div className="sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-800 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
               Documentation to Understand.{" "}
-              <Link
-                to="/documentation"
+              <button
+                onClick={navigateToReadMe}
                 className="font-semibold text-indigo-600"
               >
                 <span className="absolute inset-0" aria-hidden="true" />
                 Read more <span aria-hidden="true">&rarr;</span>
-              </Link>
+              </button>
             </div>
           </div>
           <div className="text-center">

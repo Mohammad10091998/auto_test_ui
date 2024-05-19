@@ -142,7 +142,7 @@ export default function CustomPostPutForm() {
     <div className="flex flex-col py-16 bg-slate-100">
       <div className="sm:mx-auto sm:w-full">
         <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-          User Testing {apiType === "custom_post" ? "Post" : "Put"} Api Form
+          Manual Testing of {apiType === "custom_post" ? "Post" : "Put"} Api 
         </h2>
       </div>
       {error && (
