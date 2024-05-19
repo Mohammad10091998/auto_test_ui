@@ -1,4 +1,3 @@
-## 1.Project Information
 # Auto Test UI
  
 A user-friendly UI project designed for API testing powerd by react firebase and csharp.
