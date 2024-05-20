@@ -1,5 +1,4 @@
 import { createContext, useContext } from "react";
-import { firestore } from "../firebase";
 import {
   addDoc,
   collection,
@@ -10,6 +9,7 @@ import {
 } from "firebase/firestore";
 import { useAuth } from "./AuthContext";
 import PropTypes from 'prop-types';
+import { firestore } from "../firebase";
 
 const CollectionContext = createContext();
 

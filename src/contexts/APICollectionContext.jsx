@@ -1,6 +1,5 @@
 import { createContext, useContext } from "react";
 import { useAuth } from "./AuthContext";
-import { firestore } from "../firebase";
 import {
   addDoc,
   collection,
@@ -13,6 +12,7 @@ import {
   where,
 } from "firebase/firestore";
 import PropTypes from "prop-types";
+import { firestore } from "../firebase";
 
 const APICollectionContext = createContext();
 export function useAPI() {

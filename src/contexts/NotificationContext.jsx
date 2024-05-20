@@ -8,9 +8,9 @@ import {
   where,
 } from "firebase/firestore";
 import { createContext, useContext } from "react";
-import { firestore } from "../firebase";
 import { useAuth } from "./AuthContext";
 import PropTypes from "prop-types";
+import { firestore } from "../firebase";
 const NotificationContext = createContext();
 
 export function useNotification() {
