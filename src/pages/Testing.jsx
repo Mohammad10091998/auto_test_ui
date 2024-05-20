@@ -17,7 +17,7 @@ function Testing() {
   const [apiInfoLoading, setApiInfoLoading] = useState(true);
   const [isTesting, setIsTesting] = useState(true);
   const [data, setData] = useState(null);
-  const [testedData, setTestedData] = useState(null);
+  const [testedData, setTestedData] = useState([]);
   const [error, setError] = useState("");
   const [selectAll, setSelectAll] = useState(false); // State to track select all
   const [selectedResults, setSelectedResults] = useState([]); // State to track selected results
@@ -235,7 +235,7 @@ function Testing() {
         {error && (
           <p className="text-red-500 font-semibold mt-4 text-center">
             {" "}
-            {error}
+            {JSON.stringify(error)}
           </p>
         )}
       </div>
@@ -314,7 +314,7 @@ function Testing() {
           {isTesting ? (
             <Skeleton count={10} height={50} />
           ) : (
-            testedData?.testedObjectInfos.map((item, index) => (
+            testedData?.testedObjectInfos?.map((item, index) => (
               <div
                 key={index}
                 className={`flex w-full pt-3 pb-2 border-b h-14 ${
