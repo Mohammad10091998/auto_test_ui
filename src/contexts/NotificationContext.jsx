@@ -20,14 +20,37 @@ export function useNotification() {
 export function NotificationProvider({ children }) {
   const { currentUser } = useAuth();
 
-  const shareCollection = async (userEmail, collectionId,collectionName) => {
-    await addDoc(collection(firestore, "UserNotification"), {
-      userEmail,
-      collectionId,
-      collectionName,
-      senderName : currentUser?.displayName,
-      createdOn: new Date(),
-    });
+  const shareCollection = async (userEmail, collectionId, collectionName) => {
+    try {
+      // Query for notifications with the specified userEmail
+      const notificationQuery = query(
+        collection(firestore, "UserNotification"),
+        where("userEmail", "==", userEmail)
+      );
+      const notificationsSnapshot = await getDocs(notificationQuery);
+
+      // Check if any of the documents have the same collectionId
+      notificationsSnapshot.docs.forEach((doc) => {
+        const notificationData = doc.data();
+        if (notificationData.collectionId === collectionId) {
+          throw new Error(`Collection is already shared with ${userEmail}`);
+        }
+      });
+
+      // If no matching collectionId is found, add the new notification
+      await addDoc(collection(firestore, "UserNotification"), {
+        userEmail,
+        collectionId,
+        collectionName,
+        senderName: currentUser?.displayName,
+        createdOn: new Date(),
+      });
+
+      console.log("Collection shared successfully.");
+    } catch (error) {
+      console.error("Error sharing collection:", error);
+      throw error;
+    }
   };
 
   const getAllNotification = async () => {

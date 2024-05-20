@@ -39,6 +39,7 @@ function ShareCollection() {
       );
     } catch (err) {
       setError(err.message);
+      setLoading(false);
     }
   };
 
