@@ -38,6 +38,21 @@ The input for the automated testing process is a JSON object which is payload of
 > [!TIP]
 > Provide positive value of the field for better payload generation
 
+## All supporting data types
+#### int 
+#### long
+#### double
+#### float
+#### decimal
+#### bool
+#### datetime
+#### guid
+#### char
+#### string
+
+> [!NOTE]
+> If data type you want is not there, use the closest one
+
 Example Template:
 ```
 {
