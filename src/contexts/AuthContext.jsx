@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { auth, firestore } from "../firebase";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -12,6 +11,7 @@ import {
 } from "firebase/auth";
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import PropTypes from "prop-types";
+import { auth, firestore } from "../firebase";
 
 const AuthContext = createContext();
 
