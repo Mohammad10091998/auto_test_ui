@@ -30,7 +30,8 @@ function Testing() {
   const { getApiById } = useAPI();
 
   const [isResponseVisibleIndex, setIsResponseVisibleIndex] = useState(null);
-  const [isTestObjectVisibleIndex, setIsTestObjectVisibleIndex] = useState(null);
+  const [isTestObjectVisibleIndex, setIsTestObjectVisibleIndex] =
+    useState(null);
   useEffect(() => {
     async function fetchAndTestApi(apiId) {
       try {
@@ -75,7 +76,11 @@ function Testing() {
         setTestedData(response.data);
         setIsTesting(false);
       } catch (err) {
-        setError(err.message);
+        const errorMessage =
+          err.response && err.response.data ? err.response.data : err.message;
+        setError(errorMessage);
+        console.log(err);
+        console.log(errorMessage);
         setApiInfoLoading(false);
         setIsTesting(false);
         console.log(err.message);
@@ -91,13 +96,13 @@ function Testing() {
     );
   };
 
-  const displayTestObject = (index,testedObject) => {
+  const displayTestObject = (index, testedObject) => {
     try {
-      var stringfy =  JSON.stringify(testedObject, null, 2);
+      var stringfy = JSON.stringify(testedObject, null, 2);
       return stringfy;
     } catch (error) {
-      console.log('error', testedObject)
-      
+      console.log("error", testedObject);
+
       return testedObject;
     }
   };
@@ -211,22 +216,36 @@ function Testing() {
   return (
     <div className="mt-16 max-w-screen-2xl mx-auto">
       <div>
-        <button
-          onClick={navigateBack}
-          className="absolute w-40 left-4 top-16 bg-blue-500 px-4 py-2 text-white rounded hover:bg-blue-400"
-        >
-          Back to Collection
-        </button>
+        <div className="relative">
+          <button
+            onClick={navigateBack}
+            className="w-40 bg-blue-500 px-4 py-2 ml-2 text-white rounded hover:bg-blue-400"
+          >
+            Back to Collection
+          </button>
+        </div>
         {apiInfoLoading ? (
           <Loader />
         ) : (
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center -mt-8">
             <h1 className="border-b font-semibold">{data && data.name}</h1>
             <h3>{data && data.apiType.split("_").join(" ")}</h3>
           </div>
         )}
-        {error && <p className="text-red-500">Error is {error}</p>}
+        {error && (
+          <p className="text-red-500 font-semibold mt-4 text-center">
+            {" "}
+            {error}
+          </p>
+        )}
       </div>
+      
+      <button
+          onClick={createExcelOfSelectedResult}
+          className="w-40 bg-green-500 px-4 py-2 ml-2 text-white rounded hover:bg-green-400"
+        >
+          Create Excel
+        </button>
 
       <div className="flex flex-col mt-6 mb-12">
         <div className="flex flex-col w-full items-center border-b border-t p-3">
@@ -261,12 +280,6 @@ function Testing() {
 
         <div className="flex flex-col w-full">
           <div className="flex w-full pt-4 pb-4 border-b bg-blue-200 g">
-            <button
-              onClick={createExcelOfSelectedResult}
-              className="absolute left-4 top-44 w-40 bg-green-500 px-4 py-2 text-white rounded hover:bg-green-400"
-            >
-              Create Excel
-            </button>
             <div className="flex justify-center w-1/12">
               <input
                 type="checkbox"
