@@ -45,28 +45,28 @@ function Testing() {
           case "custom_get":
           case "custom_delete":
             response = await axiosInstance.post(
-              "https://localhost:7153/api/APITesting/CustomTestGetDel",
+              "https://apiautomationtestingprod.azurewebsites.net/api/APITesting/CustomTestGetDel",
               doc
             );
             break;
           case "custom_post":
           case "custom_put":
             response = await axiosInstance.post(
-              "https://localhost:7153/api/APITesting/CustomTestPostPut",
+              "https://apiautomationtestingprod.azurewebsites.net/api/APITesting/CustomTestPostPut",
               doc
             );
             break;
           case "system_get":
           case "system_delete":
             response = await axiosInstance.post(
-              "https://localhost:7153/api/APITesting/TestGetDel",
+              "https://apiautomationtestingprod.azurewebsites.net/api/APITesting/TestGetDel",
               doc
             );
             break;
           case "system_post":
           case "system_put":
             response = await axiosInstance.post(
-              "https://localhost:7153/api/APITesting/TestPostPut",
+              "https://apiautomationtestingprod.azurewebsites.net/api/APITesting/TestPostPut",
               doc
             );
             break;
@@ -239,13 +239,13 @@ function Testing() {
           </p>
         )}
       </div>
-      
+
       <button
-          onClick={createExcelOfSelectedResult}
-          className="w-40 bg-green-500 px-4 py-2 ml-2 text-white rounded hover:bg-green-400"
-        >
-          Create Excel
-        </button>
+        onClick={createExcelOfSelectedResult}
+        className="w-40 bg-green-500 px-4 py-2 ml-2 text-white rounded hover:bg-green-400"
+      >
+        Create Excel
+      </button>
 
       <div className="flex flex-col mt-6 mb-12">
         <div className="flex flex-col w-full items-center border-b border-t p-3">
