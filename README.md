@@ -1,6 +1,6 @@
-# Auto Test UI
+# Auto Test 
  
-A user-friendly UI project designed for API testing powerd by react firebase and csharp.
+API testing web app powerd by **react**, **firebase** and **.net core web api**.
  
 ## Overview
  
@@ -10,19 +10,39 @@ API Testing UI is a tool created to simplify the process of testing APIs. It pro
  
 - [Usage](#usage)
 - [Features](#features)
+- [Configurations](#configurations)
  
 ## Usage
  
-### Access Auto Test Application through the following link: [https://apiautotest.azurewebsites.net/] 
- 
+### Access Auto Test Application through the following link: [https://auto-test-nine.vercel.app/home] 
+
 ## Features
- 
-API Testing UI comes with the following features:
- 
-1. **Graphical User Interface:** User-friendly interface for easy interaction with APIs.
-2. **Comprehensive Testing:** Backend algorithms ensure thorough testing, covering both positive and negative scenarios.
-3. **Flexible Configuration:** Easily configure test scenarios and parameters through the UI.
-4. **Detailed Reporting:** View detailed reports of API test results, including the ability to generate Excel sheets for further analysis.
+
+### API Testing UI comes with the following features:
+
+1. **User Friendly Interface:** 
+   - User-friendly interface for easy interaction with APIs.
+
+2. **Comprehensive Testing:** 
+   - Backend algorithms ensure extensive testing, covering both positive and negative scenarios.
+   - Includes features for both automated and manual testing.
+   - Supports testing for Post, Put, Get, and Delete API operations.
+
+3. **Collaborative Testing:** 
+   - Users can share collections with others, allowing multiple users to work simultaneously on the same collections.
+   - Once a collection is shared, other users can either accept or decline it.
+   - If one user adds an api to the shared collection, it will be visible to all other collaborators
+   - If one user deletes the collection, it remains visible to other collaborators.
+
+4. **Flexible Configuration:** 
+   - Easily configure test scenarios and parameters through the UI.
+   - For manual testing, you only need to provide your payload or parameters as it is, but for automated testing of your post and put API, you have to configure each property of your payload for better test payload generation.
+
+5. **Detailed Reporting:** 
+   - View detailed reports of API test results.
+   -  Generate Excel sheets for further analysis, with the option to filter specific result sets.
+
+ ## Configurations
  
 ## 1. Automated Testing of Post/Put API Call
 
