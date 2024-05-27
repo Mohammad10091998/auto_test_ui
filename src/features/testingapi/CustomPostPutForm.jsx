@@ -167,6 +167,7 @@ export default function CustomPostPutForm() {
                 id="name"
                 name="name"
                 type="name"
+                spellCheck="false"
                 className="p-2 mt-1 block w-full rounded-md border-gray-600 border shadow-sm focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50"
               />
               {errors.name && touched.name && (
@@ -187,6 +188,7 @@ export default function CustomPostPutForm() {
                 id="url"
                 name="url"
                 type="text"
+                spellCheck="false"
                 className="p-2 mt-1 block w-full rounded-md border-gray-600 border shadow-sm focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50"
               />
               {errors.url && touched.url && (
@@ -232,6 +234,7 @@ export default function CustomPostPutForm() {
                         placeholder="payload name"
                         name={payload.key}
                         id={index}
+                        spellCheck="false"
                       />
                     </div>
                     <div className="w-1/2 px-3">
@@ -246,6 +249,7 @@ export default function CustomPostPutForm() {
                         placeholder="payload value"
                         name={payload.value}
                         id={index}
+                        spellCheck="false"
                       />
                       <button
                         type="button"
@@ -327,6 +331,7 @@ export default function CustomPostPutForm() {
                         placeholder="header key"
                         name={header.key}
                         id={index}
+                        spellCheck="false"
                       />
                     </div>
                     <div className="w-1/2 px-3">
@@ -340,6 +345,7 @@ export default function CustomPostPutForm() {
                         placeholder="header value"
                         name={header.value}
                         id={index}
+                        spellCheck="false"
                       />
                     </div>
                     <button

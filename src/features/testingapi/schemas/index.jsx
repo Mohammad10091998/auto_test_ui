@@ -92,17 +92,6 @@ const systemGetDeleteValidation = (value) => {
   return true;
 };
 
-const systemPostPutValidation = (value) => {
-  try {
-    const parsedValue = JSON.parse(value);
-    if (typeof parsedValue !== "object" || parsedValue === null) {
-      return false;
-    }
-    return true;
-  } catch (error) {
-    return false;
-  }
-};
 
 export const customGetDeleteSchema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
@@ -149,15 +138,87 @@ export const systemGetDeleteSchema = Yup.object().shape({
     .test("header-validation", "Do not save empty headers", headerValidation),
 });
 
+const systemPostPutValidation = (value) => {
+  try {
+    const parsedValue = JSON.parse(value);
+    if (typeof parsedValue !== "object" || parsedValue === null) {
+      return "Parsed value is not an object.";
+    }
+    validateObject(parsedValue);
+    return true;
+  } catch (error) {
+    if (error instanceof SyntaxError) {
+      return `Invalid JSON format: ${error.message}`;
+    } else {
+      return `Validation error: ${error.message}`;
+    }
+  }
+};
+
+const validDataTypes = [
+  "int",
+  "long",
+  "double",
+  "float",
+  "decimal",
+  "bool",
+  "datetime",
+  "guid",
+  "char",
+  "string",
+];
+
+const validateValueFormat = (key, value) => {
+  const valueStr = String(value);
+  const parts = valueStr.split(",");
+  if (parts.length < 3) {
+    throw new Error(`Value of key "${key}" must contain at least two commas.`);
+  }
+  const [dataType, typeSpecifier] = parts;
+  if (!validDataTypes.includes(dataType.trim())) {
+    throw new Error(
+      `Invalid data type "${dataType}" for key "${key}". Must be one of: ${validDataTypes.join(
+        ", "
+      )}.`
+    );
+  }
+  if (typeSpecifier.trim() !== "fix" && typeSpecifier.trim() !== "random") {
+    throw new Error(
+      `Value of key "${key}" must contain either "fix" or "random" as the second part.`
+    );
+  }
+};
+
+const validateObject = (obj, path = "") => {
+  for (const [key, value] of Object.entries(obj)) {
+    const fullPath = path ? `${path}.${key}` : key;
+    if (typeof key !== "string") {
+      throw new Error(`Key "${fullPath}" must be a string.`);
+    }
+    if (typeof value === "object" && value !== null) {
+      validateObject(value, fullPath);
+    } else {
+      validateValueFormat(fullPath, value);
+    }
+  }
+};
+
+
 export const systemPostPutSchema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
   url: Yup.string().required("URL is required"),
   payload: Yup.string()
-    .required("payload is required")
+    .required("Payload is required")
     .test(
       "payload-validation",
-      "Provide valid json payload",
-      systemPostPutValidation
+      function (value) {
+        const validationResult = systemPostPutValidation(value);
+        if (validationResult === true) {
+          return true;
+        } else {
+          return this.createError({ message: validationResult });
+        }
+      }
     ),
   headerPairs: Yup.array()
     .of(Yup.object().shape({}))
