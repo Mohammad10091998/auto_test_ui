@@ -12,7 +12,7 @@ function Content() {
               <CollectionsList />
             </div>
           </div>
-          <div className="w-3/4">
+          <div className="w-3/4 bg-slate-100">
             {/* Wrap TestingAPIList in a div with overflow-y-auto */}
             <div className="overflow-y-auto">
               <TestingAPIList />
