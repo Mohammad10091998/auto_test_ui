@@ -52,6 +52,8 @@ The input for the automated testing process is a JSON object which is payload of
 > [!IMPORTANT]
 > "name of the field" : "data type, behaviour, value"
 
+> **behaviour types are -> 1.fix   2. random** 
+
 > [!CAUTION]
 > all info of the field and field itself must be in double quotes
 
@@ -71,7 +73,7 @@ The input for the automated testing process is a JSON object which is payload of
 #### string
 
 > [!NOTE]
-> If data type you want is not there, use the closest one
+> If data type you want is not in the above list, use the closest one
 
 Example Template:
 ```
@@ -93,7 +95,8 @@ Example Template:
 
 ```
 
-![image](https://github.com/Mohammad10091998/auto_test_ui/assets/110900901/ecec5722-a37b-4469-baf6-036aa419b0c8)
+![image](https://github.com/Mohammad10091998/auto_test_ui/assets/110900901/dfaa62e5-eafa-49fe-8d42-95accb83150b)
+
 
 
 
@@ -114,7 +117,8 @@ Example Template:
  
 This feature enables users to do tailored testing of their Post/Put APIs  by providing multiple payload on which our application will test the api. Details include:
 
-![image](https://github.com/Mohammad10091998/auto_test_ui/assets/110900901/7757a58d-8f85-47b8-8958-3fc1fc5dca37)
+![image](https://github.com/Mohammad10091998/auto_test_ui/assets/110900901/3dd8fe96-d3fc-4d55-9fc9-a09bea1be5d3)
+
 
 
  
@@ -131,20 +135,21 @@ This feature enables users to do tailored testing of their Post/Put APIs  by pro
 Our backend algorithm creates a spectrum of test scenarios by dynamically generating values for each query parameter, ensuring a comprehensive assessment of API behavior.
 
 > [!CAUTION]
-> When providing url for get or delete api please removed query parameters.
+> When providing url for get or delete api please removed query parameters from the url.
 
 ```
-https://lis-admin-api-dev.ashymeadow-d1f4bad8.westus.azurecontainerapps.io/ICD10Code
+example url : https://admin/buyorder
 ```
  
-![image](https://github.com/Mohammad10091998/auto_test_ui/assets/110900901/fe14d438-987d-421d-be54-a754b9ff0057)
+![image](https://github.com/Mohammad10091998/auto_test_ui/assets/110900901/3305a779-cf20-401e-8e39-cf135cc8da56)
+
 
  
 **url:**  The URL of the API endpoint to test.
  
 **apiType:** Specify whether it's a "POST" or "PUT" request.
  
-**params:** Provide an array of query parameters, each with a key and a single value.
+**params:** Provide an array of query parameters, each with a key and a single value (**value must be positve case for better testing of api**).
  
 **headers::** Specify the headers needed for the API request, such as "Authorization" and "Content-Type."
  
@@ -153,13 +158,14 @@ https://lis-admin-api-dev.ashymeadow-d1f4bad8.westus.azurecontainerapps.io/ICD10
 The Manual Testing feature in our API Testing UI enhances the testing capabilities for Get/Delete APIs by allowing users to provide multiple values for each query parameter. This empowers users to perform thorough and customized assessments of their APIs under diverse conditions.
 
 > [!CAUTION]
-> When providing url for get or delete api please removed query parameters.
+> When providing url for get or delete api please removed query parameters from the url.
 
 ```
-https://lis-admin-api-dev.ashymeadow-d1f4bad8.westus.azurecontainerapps.io/ICD10Code
+example url : https://admin.azurecontainerapps/buyorder
 ```
 
- ![image](https://github.com/Mohammad10091998/auto_test_ui/assets/110900901/d1ca1125-225d-46f3-b3f2-03ff85de8883)
+![image](https://github.com/Mohammad10091998/auto_test_ui/assets/110900901/e79267f2-d9ce-415a-a42d-08f822a7522b)
+
 
  
 **url:**  The URL of the API endpoint to test.
