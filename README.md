@@ -113,6 +113,21 @@ Example Template:
 
  **SAVE THE API AND CLICK ON GEAR ICON TO TEST YOUR API**
 
+### How algorith works 
+We have example schema with the required configuration. The program will loop over the fields of your schema and create different payloads for each field. 
+![image](https://github.com/Mohammad10091998/auto_test_ui/assets/110900901/fa053c10-573b-42f8-98a4-bace9cb1b812)
+
+It will take the ID field and generate various payloads based on different possible scenarios for this field. Other fields will behave as configured: if a field is fixed, it will remain the same; if it is random, it will be new each time but very close to the original to avoid negative scenarios.  For example 'Name' field have random behavior so it is new every time but close to the original one. Course Name field have fixed behaviour so it remains same. 
+
+![image](https://github.com/Mohammad10091998/auto_test_ui/assets/110900901/a1d3664a-f45f-4436-9f97-f9504d495eb2)
+![image](https://github.com/Mohammad10091998/auto_test_ui/assets/110900901/24826322-914f-4128-85d8-c2d3ab413c37)
+
+
+Then, it will proceed to the second field and generate different payloads based on various scenarios for this field. For example, in this schema, it is creating payloads for the 'Name' field.
+![image](https://github.com/Mohammad10091998/auto_test_ui/assets/110900901/e07b634f-cc27-45e2-ac7a-3f37f59fba08)
+
+This way payloads will be created on each field. 
+
 
 ## 2. Manual Testing of Post/Put API Call
  
