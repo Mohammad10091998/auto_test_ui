@@ -50,7 +50,8 @@ API Testing UI is a tool created to simplify the process of testing APIs. It pro
 The input for the automated testing process is a JSON object which is payload of your post/put api, where each field has a data type , a behavior directive (fix or random) and a value (try to keep it as positive for better payload generation). This JSON object serves as a template for generating test payloads for your api.
 
 > [!IMPORTANT]
-> "name of the field" : "data type, behaviour, value"
+> "name of the field" : "dataType,behaviour,value" : 
+>  AVOID SPACE ANYWHERE WHILE CONFIGURING (EXCEPT IN THE VALUE)
 
 > **behaviour types are -> 1.fix   2. random** 
 
